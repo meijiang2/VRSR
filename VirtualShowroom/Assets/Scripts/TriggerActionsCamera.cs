@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TriggerActionsCamera : MonoBehaviour
+public class ChangeSpeed : MonoBehaviour
 {
     public MouseScrollHiddenObject mouseScrollHiddenObject;
     public MouseScrollCamera mouseScrollCamera;
