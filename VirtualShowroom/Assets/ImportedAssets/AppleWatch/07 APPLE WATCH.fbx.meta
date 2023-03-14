@@ -5,8 +5,78 @@ ModelImporter:
   internalIDToNameTable:
   - first:
       74: -1498010087492872569
-    second: CINEMA_4D_Main
-  externalObjects: {}
+    second: animOpenWatch
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BacksideBaked
+    second: {fileID: 2100000, guid: d0c23c9309042b9409db19620e160825, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BacksideGrey
+    second: {fileID: 2100000, guid: b1c6059ecf0517c4fb127859db59299a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Battery
+    second: {fileID: 2100000, guid: a037bd5013a11864699a122a7ec85629, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Brushed_Steel_shkafchc
+    second: {fileID: 2100000, guid: d4a3c753c1d39de4eb938630014e1164, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CaseMetalZwart
+    second: {fileID: 2100000, guid: 95fab89e6e638c24ab60f7f367c25cbe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ChipBaked
+    second: {fileID: 2100000, guid: 030e9d8f45926bf449b06d2d36bf4c43, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GaasSpeaker
+    second: {fileID: 2100000, guid: a6d4ff581ccd7294b89d641c9f9b6699, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: InnerbackCircle
+    second: {fileID: 2100000, guid: f80d9f8980185c447bfc8e89bedb4c1c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RubberZwart
+    second: {fileID: 2100000, guid: 86702056b593d5d4fb41de20981eefc5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Screen
+    second: {fileID: 2100000, guid: 46f43de65a43b274285e0b07d2e6e9b1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ScreenOutline
+    second: {fileID: 2100000, guid: 0b709048c4e4b7848888e22c692919f0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ScreenOutlineBaked
+    second: {fileID: 2100000, guid: 7bbff90234994be4cbc6c2d83ee4fc3c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: StrapbuttonMetal
+    second: {fileID: 2100000, guid: 9442c0198db604149a349ac0975cfc6e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Taptic Engine Module
+    second: {fileID: 2100000, guid: 69f02d5579e694f449aa15e61e27884e, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -34,7 +104,36 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: animOpenWatch
+      takeName: CINEMA_4D_Main
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 50
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []
@@ -46,7 +145,7 @@ ModelImporter:
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 0
-    importLights: 1
+    importLights: 0
     nodeNameCollisionStrategy: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
