@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChangeSpeed : MonoBehaviour
+public class TriggerActionsCamera : MonoBehaviour
 {
     public MouseScrollHiddenObject mouseScrollHiddenObject;
     public MouseScrollCamera mouseScrollCamera;
+    public bool isInTriggerZone = false;
 
     void Start()
     {
@@ -20,6 +21,8 @@ public class ChangeSpeed : MonoBehaviour
     {
         mouseScrollHiddenObject.speed = mouseScrollHiddenObject.speed / 2.5f * 0.5f;
         mouseScrollCamera.speed = mouseScrollCamera.speed / 2.5f * 0.5f;
+
+        isInTriggerZone = true;
     }
 
     private void OnTriggerExit(Collider other)
@@ -32,6 +35,7 @@ public class ChangeSpeed : MonoBehaviour
             go.tag = "Selectable";
             Debug.Log("Exit trigger zone, selected object is deselected, tag changes to selectable");
         }
-        
+
+        isInTriggerZone = false;
     }
 }
