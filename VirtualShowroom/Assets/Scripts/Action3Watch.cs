@@ -7,7 +7,7 @@ public class Action3Watch : MonoBehaviour
     private Animation anim;
     void Start()
     {
-        anim = GameObject.Find("appleWatch").GetComponent<Animation>();
+        anim = GameObject.Find("AppleWatch").GetComponent<Animation>();
     }
 
     void Update()

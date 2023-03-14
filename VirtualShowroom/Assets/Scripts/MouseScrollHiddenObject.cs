@@ -18,10 +18,12 @@ public class MouseScrollHiddenObject : MonoBehaviour
         if (Input.GetAxis("Mouse ScrollWheel") > 0)
         {
             ho.m_PathPosition -= speed;
+            //Debug.Log("moving...back HO");
         }
         if (Input.GetAxis("Mouse ScrollWheel") < 0)
         {
             ho.m_PathPosition += speed;
+            //Debug.Log("moving...forward HO");
         }
     }
 }

@@ -9,6 +9,7 @@ public class SelectionManager : MonoBehaviour
     private string selectedTag = "Selected";
     private Transform selection;
     private Transform objSelection;
+    private GameObject selectedGO = null;
 
     void Start()
     {
@@ -19,8 +20,8 @@ public class SelectionManager : MonoBehaviour
     {
         if (objSelection != null)
         {
-            var selectionOutline = objSelection.gameObject.GetComponent<Outline>();
-            selectionOutline.enabled = false;
+            //var selectionOutline = objSelection.gameObject.GetComponent<Outline>();
+            //selectionOutline.enabled = false;
             Debug.Log("disabled");
             objSelection = null;
         }
@@ -32,24 +33,26 @@ public class SelectionManager : MonoBehaviour
             selection = hit.transform;
             if (selection.CompareTag(selectableTag))
             {
-                
-                var selectionOutline = selection.gameObject.GetComponent<Outline>();
-                if (selectionOutline != null)
-                {
-                    selection.gameObject.GetComponent<Outline>().enabled = true;
-                    Debug.Log("enabled");
-                }
-                else
-                {
-                    selectionOutline = selection.gameObject.AddComponent<Outline>();
-                    selection.gameObject.GetComponent<Outline>().enabled = true;
-                    Debug.Log("outline component added");
-                }
+                selectedGO = selection.gameObject;
+                Debug.Log(selectedGO);
+                //note: outline werkt, niet op imported asset
+                //var selectionOutline = selection.gameObject.GetComponent<Outline>();
+                //if (selectionOutline != null)
+                //{
+                //    selection.gameObject.GetComponent<Outline>().enabled = true;
+                //    Debug.Log("enabled");
+                //}
+                //else
+                //{
+                //    selectionOutline = selection.gameObject.AddComponent<Outline>();
+                //    selection.gameObject.GetComponent<Outline>().enabled = true;
+                //    Debug.Log("outline component added");
+                //}
                 objSelection = selection;
 
                 if (Input.GetMouseButton(0))
                 {
-                    selection.gameObject.tag = selectedTag;
+                    selectedGO.tag = selectedTag;
                     Debug.Log("Object selected, tag changes to selected");
                     //code events
                 }

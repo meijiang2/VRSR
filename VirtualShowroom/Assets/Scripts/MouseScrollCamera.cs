@@ -19,10 +19,12 @@ public class MouseScrollCamera : MonoBehaviour
         if (Input.GetAxis("Mouse ScrollWheel") > 0)
         {
             dt.m_PathPosition -= speed;
+            //Debug.Log("moving...back");
         }
         if (Input.GetAxis("Mouse ScrollWheel") < 0)
         {
             dt.m_PathPosition += speed;
+            //Debug.Log("moving...forward");
         }
     }
 }
