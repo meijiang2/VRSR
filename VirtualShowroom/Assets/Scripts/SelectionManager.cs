@@ -18,14 +18,16 @@ public class SelectionManager : MonoBehaviour
 
     void Update()
     {
-        //Debug.Log("test: "+ selectedGO);
+        /*
+         * FOUT: WORDT NIET DESELECTEERD
+         */
+        Debug.Log("test: "+ selectedGO);
         if (objSelection != null)
         {
             var selectionOutline = objSelection.gameObject.GetComponent<Outline>();
             selectionOutline.enabled = false;
             //Debug.Log("disabled");
             objSelection = null;
-            selectedGO = null;
         }
         
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -35,8 +37,6 @@ public class SelectionManager : MonoBehaviour
             selection = hit.transform;
             if (selection.CompareTag(selectableTag))
             {
-                selectedGO = selection.gameObject;
-                //Debug.Log(selectedGO);
                 var selectionOutline = selection.gameObject.GetComponent<Outline>();
                 if (selectionOutline != null)
                 {
@@ -55,8 +55,13 @@ public class SelectionManager : MonoBehaviour
                 {
                     selection.gameObject.tag = selectedTag;
                     Debug.Log("Object selected, tag changes to selected");
+                    selectedGO = selection.gameObject;
                     //code events
                 }
+            }
+            else
+            {
+                selectedGO = null;
             }
         }
     }
