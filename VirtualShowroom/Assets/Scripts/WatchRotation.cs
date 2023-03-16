@@ -28,7 +28,7 @@ public class WatchRotation : MonoBehaviour
 
         if (/*tac.isInTriggerZone && */tac.triggerZone == "TriggerWatch")
         {
-            Debug.Log("test message");
+            //Debug.Log("test message");
             openWatchButton.gameObject.SetActive(true);
             if (Input.GetMouseButton(0))
             {

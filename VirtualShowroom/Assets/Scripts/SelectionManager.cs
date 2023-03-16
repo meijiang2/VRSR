@@ -21,9 +21,9 @@ public class SelectionManager : MonoBehaviour
         Debug.Log("test: "+ selectedGO);
         if (objSelection != null)
         {
-            //var selectionOutline = objSelection.gameObject.GetComponent<Outline>();
-            //selectionOutline.enabled = false;
-            //Debug.Log("disabled");
+            var selectionOutline = objSelection.gameObject.GetComponent<Outline>();
+            selectionOutline.enabled = false;
+            Debug.Log("disabled");
             objSelection = null;
             selectedGO = null;
         }
@@ -36,19 +36,19 @@ public class SelectionManager : MonoBehaviour
             if (selection.CompareTag(selectableTag))
             {
                 selectedGO = selection.gameObject;
-                //note: outline werkt, niet op imported asset
-                //var selectionOutline = selection.gameObject.GetComponent<Outline>();
-                //if (selectionOutline != null)
-                //{
-                //    selection.gameObject.GetComponent<Outline>().enabled = true;
-                //    Debug.Log("enabled");
-                //}
-                //else
-                //{
-                //    selectionOutline = selection.gameObject.AddComponent<Outline>();
-                //    selection.gameObject.GetComponent<Outline>().enabled = true;
-                //    Debug.Log("outline component added");
-                //}
+                Debug.Log(selectedGO);
+                var selectionOutline = selection.gameObject.GetComponent<Outline>();
+                if (selectionOutline != null)
+                {
+                    selection.gameObject.GetComponent<Outline>().enabled = true;
+                    Debug.Log("enabled");
+                }
+                else
+                {
+                    selectionOutline = selection.gameObject.AddComponent<Outline>();
+                    selection.gameObject.GetComponent<Outline>().enabled = true;
+                    Debug.Log("outline component added");
+                }
                 objSelection = selection;
 
                 if (Input.GetMouseButton(0))
