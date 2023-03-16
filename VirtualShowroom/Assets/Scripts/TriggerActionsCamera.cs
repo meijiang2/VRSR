@@ -7,6 +7,7 @@ public class TriggerActionsCamera : MonoBehaviour
     public MouseScrollHiddenObject mouseScrollHiddenObject;
     public MouseScrollCamera mouseScrollCamera;
     public bool isInTriggerZone = false;
+    public string triggerZone = null;
 
     void Start()
     {
@@ -23,6 +24,7 @@ public class TriggerActionsCamera : MonoBehaviour
         mouseScrollCamera.speed = mouseScrollCamera.speed / 2.5f * 0.5f;
 
         isInTriggerZone = true;
+        triggerZone = other.gameObject.name;
     }
 
     private void OnTriggerExit(Collider other)
@@ -37,5 +39,7 @@ public class TriggerActionsCamera : MonoBehaviour
         }
 
         isInTriggerZone = false;
+
+        triggerZone = null;
     }
 }

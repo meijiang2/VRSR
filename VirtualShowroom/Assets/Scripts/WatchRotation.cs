@@ -8,6 +8,7 @@ public class WatchRotation : MonoBehaviour
     private Vector3 watchRotation;
     private float speed = 2f;
     private TriggerActionsCamera tac;
+    private SelectionManager selectionManager;
     private Button openWatchButton;
     private Vector3 standardRotation;
     private Vector3 currentRotation;
@@ -16,6 +17,7 @@ public class WatchRotation : MonoBehaviour
     {
         watchRotation.y = 10;
         tac = GameObject.Find("Main Camera").GetComponent<TriggerActionsCamera>();
+        selectionManager = GameObject.Find("SelectionManager").GetComponent<SelectionManager>();
         openWatchButton = GameObject.Find("OpenWatch").GetComponent<Button>();
         standardRotation = transform.eulerAngles;
     }
@@ -24,8 +26,9 @@ public class WatchRotation : MonoBehaviour
     {
         transform.Rotate(watchRotation * speed * Time.deltaTime);
 
-        if (tac.isInTriggerZone)
+        if (/*tac.isInTriggerZone && */tac.triggerZone == "TriggerWatch")
         {
+            Debug.Log("test message");
             openWatchButton.gameObject.SetActive(true);
             if (Input.GetMouseButton(0))
             {

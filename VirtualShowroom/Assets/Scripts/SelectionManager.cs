@@ -9,7 +9,7 @@ public class SelectionManager : MonoBehaviour
     private string selectedTag = "Selected";
     private Transform selection;
     private Transform objSelection;
-    private GameObject selectedGO = null;
+    public GameObject selectedGO = null;
 
     void Start()
     {
