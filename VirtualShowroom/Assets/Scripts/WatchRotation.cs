@@ -10,6 +10,8 @@ public class WatchRotation : MonoBehaviour
     private TriggerActionsCamera tac;
     private SelectionManager selectionManager;
     private Button openWatchButton;
+    private Button closeWatchButton;
+    private WatchButton watchButton;
     private Vector3 standardRotation;
     private Vector3 currentRotation;
 
@@ -19,6 +21,8 @@ public class WatchRotation : MonoBehaviour
         tac = GameObject.Find("Main Camera").GetComponent<TriggerActionsCamera>();
         selectionManager = GameObject.Find("SelectionManager").GetComponent<SelectionManager>();
         openWatchButton = GameObject.Find("OpenWatch").GetComponent<Button>();
+        closeWatchButton = GameObject.Find("CloseWatch").GetComponent<Button>();
+        watchButton = GameObject.Find("WatchButtonSwitch").GetComponent<WatchButton>();
         standardRotation = transform.eulerAngles;
     }
 
@@ -28,8 +32,18 @@ public class WatchRotation : MonoBehaviour
 
         if (/*tac.isInTriggerZone && */tac.triggerZone == "TriggerWatch")
         {
-            //Debug.Log("test message");
-            openWatchButton.gameObject.SetActive(true);
+            //Debug.Log("isopenanimpalyed: " + watchButton.isOpenAnimPlayed);
+            if (watchButton.isOpenAnimPlayed == false)
+            {
+                openWatchButton.gameObject.SetActive(true);
+                closeWatchButton.gameObject.SetActive(false);
+            }
+            else
+            {
+                openWatchButton.gameObject.SetActive(false);
+                closeWatchButton.gameObject.SetActive(true);
+            }
+            
             if (Input.GetMouseButton(0))
             {
                 transform.eulerAngles += speed * new Vector3(x: -Input.GetAxis("Mouse Y"), y: Input.GetAxis("Mouse X"), z: 0);
@@ -39,12 +53,14 @@ public class WatchRotation : MonoBehaviour
         else
         {
             openWatchButton.gameObject.SetActive(false);
+            closeWatchButton.gameObject.SetActive(false);
             if (currentRotation != standardRotation)
             {
                 transform.eulerAngles = standardRotation; //werkt maar snapt naar die positie
                 //transform.Rotate(standardRotation); //werkt niet: voert t wel uit maar  ziet het niet
                 currentRotation = standardRotation;
-
+                watchButton.isOpenAnimPlayed = false;
+                
                 //hier code voor sluit anim
             }
             

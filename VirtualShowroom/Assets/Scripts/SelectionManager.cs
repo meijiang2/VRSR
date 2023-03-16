@@ -18,12 +18,12 @@ public class SelectionManager : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("test: "+ selectedGO);
+        //Debug.Log("test: "+ selectedGO);
         if (objSelection != null)
         {
             var selectionOutline = objSelection.gameObject.GetComponent<Outline>();
             selectionOutline.enabled = false;
-            Debug.Log("disabled");
+            //Debug.Log("disabled");
             objSelection = null;
             selectedGO = null;
         }
@@ -36,12 +36,12 @@ public class SelectionManager : MonoBehaviour
             if (selection.CompareTag(selectableTag))
             {
                 selectedGO = selection.gameObject;
-                Debug.Log(selectedGO);
+                //Debug.Log(selectedGO);
                 var selectionOutline = selection.gameObject.GetComponent<Outline>();
                 if (selectionOutline != null)
                 {
                     selection.gameObject.GetComponent<Outline>().enabled = true;
-                    Debug.Log("enabled");
+                    //Debug.Log("enabled");
                 }
                 else
                 {

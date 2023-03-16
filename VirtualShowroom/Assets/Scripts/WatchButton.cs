@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Action3Watch : MonoBehaviour
+public class WatchButton : MonoBehaviour
 {
     private Animation anim;
+    public bool isOpenAnimPlayed = false;
+
     void Start()
     {
         anim = GameObject.Find("AppleWatch").GetComponent<Animation>();
@@ -20,5 +22,14 @@ public class Action3Watch : MonoBehaviour
         //plays animation
         Debug.Log("open watch");
         anim.Play("animOpenWatch");
+        isOpenAnimPlayed = true;
+    }
+
+    public void CloseWatch()
+    {
+        //plays animation
+        Debug.Log("close watch \n anim close watch is played, isOpenAnimPlayed set to false");
+        //anim.Play("animCloseWatch");
+        isOpenAnimPlayed = false;
     }
 }
