@@ -29,7 +29,7 @@ public class WatchButton : MonoBehaviour
     {
         //plays animation
         Debug.Log("close watch \n anim close watch is played, isOpenAnimPlayed set to false");
-        //anim.Play("animCloseWatch");
+        anim.Play("CINEMA_4D_Main");
         isOpenAnimPlayed = false;
     }
 }

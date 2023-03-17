@@ -46,7 +46,7 @@ public class WatchRotation : MonoBehaviour
             
             if (Input.GetMouseButton(0))
             {
-                transform.eulerAngles += speed * new Vector3(x: -Input.GetAxis("Mouse Y"), y: Input.GetAxis("Mouse X"), z: 0);
+                transform.eulerAngles += speed * new Vector3(x: 0/*-Input.GetAxis("Mouse Y")*/, y: Input.GetAxis("Mouse X"), z: 0);
                 currentRotation = transform.eulerAngles;
             }
         }
@@ -60,8 +60,9 @@ public class WatchRotation : MonoBehaviour
                 //transform.Rotate(standardRotation); //werkt niet: voert t wel uit maar  ziet het niet
                 currentRotation = standardRotation;
                 watchButton.isOpenAnimPlayed = false;
-                
+
                 //hier code voor sluit anim
+                watchButton.CloseWatch();
             }
             
         }
