@@ -10,6 +10,7 @@ public class SelectionManager : MonoBehaviour
     private Transform selection;
     private Transform objSelection;
     public GameObject selectedGO = null;
+    public GameObject currentSelectedGO = null;
 
     void Start()
     {
@@ -18,18 +19,13 @@ public class SelectionManager : MonoBehaviour
 
     void Update()
     {
-        /*
-         * FOUT: WORDT NIET DESELECTEERD
-         */
-        Debug.Log("test: "+ selectedGO);
         if (objSelection != null)
         {
             var selectionOutline = objSelection.gameObject.GetComponent<Outline>();
             selectionOutline.enabled = false;
-            //Debug.Log("disabled");
             objSelection = null;
         }
-        
+
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         
         if (Physics.Raycast(ray, out hit))
@@ -41,27 +37,36 @@ public class SelectionManager : MonoBehaviour
                 if (selectionOutline != null)
                 {
                     selection.gameObject.GetComponent<Outline>().enabled = true;
-                    //Debug.Log("enabled");
                 }
                 else
                 {
                     selectionOutline = selection.gameObject.AddComponent<Outline>();
                     selection.gameObject.GetComponent<Outline>().enabled = true;
-                    Debug.Log("outline component added");
                 }
                 objSelection = selection;
-
-                if (Input.GetMouseButton(0))
-                {
-                    selection.gameObject.tag = selectedTag;
-                    Debug.Log("Object selected, tag changes to selected");
-                    selectedGO = selection.gameObject;
-                    //code events
-                }
             }
-            else
+        }
+
+        OnMouseClick();
+    }
+
+    public void OnMouseClick()
+    {
+        if (Input.GetMouseButton(0))
+        {
+            if (selection != null && selection.CompareTag(selectableTag))
             {
-                selectedGO = null;
+                selectedGO = selection.gameObject;
+                selectedGO.tag = selectedTag;
+
+                if (selectedGO != currentSelectedGO)
+                {
+                    if (currentSelectedGO != null)
+                    {
+                        currentSelectedGO.tag = selectableTag;
+                    }
+                    currentSelectedGO = selectedGO;
+                }
             }
         }
     }

@@ -43,12 +43,12 @@ public class WatchInfo : MonoBehaviour
 
     private void ShowWatchInfo(string goName)
     {
-        Debug.Log(goName);
+        //Debug.Log(goName);
         switch (goName)
         {
             case "Backcircle":
                 //iets
-                Debug.Log("BAckcircle 1 ");
+                //Debug.Log("BAckcircle 1 ");
                 infoBG.SetActive(true);
                 info1.SetActive(true);
                 break;
@@ -57,13 +57,13 @@ public class WatchInfo : MonoBehaviour
                 break;
             case "Casing":
                 //iets
-                Debug.Log("Casing 2 ");
+                //Debug.Log("Casing 2 ");
                 infoBG.SetActive(true);
                 info2.SetActive(true);
                 break;
             case "ChipBaked":
                 //iets
-                Debug.Log("Chipbaked 3 ");
+                //Debug.Log("Chipbaked 3 ");
                 infoBG.SetActive(true);
                 info3.SetActive(true);
                 break;
