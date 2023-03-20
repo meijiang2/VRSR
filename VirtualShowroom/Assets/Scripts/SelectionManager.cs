@@ -52,7 +52,7 @@ public class SelectionManager : MonoBehaviour
 
     public void OnMouseClick()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
             if (selection != null && selection.CompareTag(selectableTag))
             {
@@ -67,6 +67,19 @@ public class SelectionManager : MonoBehaviour
                     }
                     currentSelectedGO = selectedGO;
                 }
+            }
+            else
+            {
+                if (currentSelectedGO != null)
+                {
+                    currentSelectedGO.tag = selectableTag;
+                }
+                if (selectedGO != null)
+                {
+                    selectedGO.tag = selectableTag;
+                }
+                currentSelectedGO = null;
+                selectedGO = null;
             }
         }
     }
