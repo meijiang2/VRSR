@@ -8,7 +8,6 @@ public class WatchInfo : MonoBehaviour
     private string selectedName = "empty";
     private TriggerActionsCamera tac;
     private SelectionManager selectionManager;
-    //private GameObject[] infoTexts;
     private GameObject infoBG;
     private GameObject info1;
     private GameObject info2;
@@ -18,7 +17,6 @@ public class WatchInfo : MonoBehaviour
     {
         selectionManager = GameObject.Find("SelectionManager").GetComponent<SelectionManager>();
         tac = GameObject.Find("Main Camera").GetComponent<TriggerActionsCamera>();
-        //infoTexts = GameObject.FindGameObjectsWithTag("WatchInfo");
         infoBG = GameObject.Find("WIBG");
         info1 = GameObject.Find("WI1");
         info2 = GameObject.Find("WI2");
@@ -27,24 +25,23 @@ public class WatchInfo : MonoBehaviour
 
     void Update()
     {
-        if (selectionManager.selectedGO != null)
-        {
-            selectedName = selectionManager.selectedGO.name;
-        }
-        else
-        {
-            selectedName = "empty";
-        }
         if (tac.triggerZone == "TriggerWatch")
         {
+            if (selectionManager.selectedGO != null)
+            {
+                selectedName = selectionManager.selectedGO.name;
+            }
+            else
+            {
+                selectedName = "empty";
+            }
+            
             ShowWatchInfo(selectedName);
         }
         else
         {
-            infoBG.SetActive(false);
-            info1.SetActive(false);
-            info2.SetActive(false);
-            info3.SetActive(false);
+            selectedName = "empty";
+            DisactivateAllInfo();
         }
     }
 
@@ -109,14 +106,19 @@ public class WatchInfo : MonoBehaviour
                 Debug.Log("Nog geen actie toegevoegd...");
                 break;
             case "empty":
-                infoBG.SetActive(false);
-                info1.SetActive(false);
-                info2.SetActive(false);
-                info3.SetActive(false);
+                DisactivateAllInfo();
                 break;
             default:
                 
                 break;
         }
+    }
+
+    private void DisactivateAllInfo()
+    {
+        infoBG.SetActive(false);
+        info1.SetActive(false);
+        info2.SetActive(false);
+        info3.SetActive(false);
     }
 }

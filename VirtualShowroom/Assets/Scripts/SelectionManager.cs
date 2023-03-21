@@ -10,7 +10,7 @@ public class SelectionManager : MonoBehaviour
     private Transform selection;
     private Transform objSelection;
     public GameObject selectedGO = null;
-    public GameObject currentSelectedGO = null;
+    private GameObject currentSelectedGO = null;
 
     void Start()
     {
@@ -54,9 +54,9 @@ public class SelectionManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (selection != null && selection.CompareTag(selectableTag))
+            if (objSelection != null && objSelection.CompareTag(selectableTag))
             {
-                selectedGO = selection.gameObject;
+                selectedGO = objSelection.gameObject;
                 selectedGO.tag = selectedTag;
 
                 if (selectedGO != currentSelectedGO)

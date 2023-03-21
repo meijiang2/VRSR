@@ -6,16 +6,17 @@ public class TriggerActionsCamera : MonoBehaviour
 {
     public MouseScrollHiddenObject mouseScrollHiddenObject;
     public MouseScrollCamera mouseScrollCamera;
+    private SelectionManager selectionManager;
     public bool isInTriggerZone = false;
     public string triggerZone = null;
 
     void Start()
     {
+        selectionManager = GameObject.Find("SelectionManager").GetComponent<SelectionManager>();
     }
 
     void Update()
     {
-        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -41,5 +42,7 @@ public class TriggerActionsCamera : MonoBehaviour
         isInTriggerZone = false;
 
         triggerZone = null;
+
+        selectionManager.selectedGO = null;
     }
 }

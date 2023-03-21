@@ -38,7 +38,7 @@ public class WatchRotation : MonoBehaviour
             }
             if (Input.GetMouseButton(0))
             {
-                transform.eulerAngles += speed * new Vector3(x: 0/*-Input.GetAxis("Mouse Y")*/, y: Input.GetAxis("Mouse X"), z: 0);
+                transform.eulerAngles += speed * new Vector3(x: 0, y: Input.GetAxis("Mouse X"), z: 0);
             }
             else
             {
