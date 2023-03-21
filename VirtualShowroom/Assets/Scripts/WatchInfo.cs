@@ -39,11 +39,18 @@ public class WatchInfo : MonoBehaviour
         {
             ShowWatchInfo(selectedName);
         }
+        else
+        {
+            infoBG.SetActive(false);
+            info1.SetActive(false);
+            info2.SetActive(false);
+            info3.SetActive(false);
+        }
     }
 
     private void ShowWatchInfo(string goName)
     {
-        Debug.Log(goName);
+        //Debug.Log(goName);
         switch (goName)
         {
             case "Backcircle":
