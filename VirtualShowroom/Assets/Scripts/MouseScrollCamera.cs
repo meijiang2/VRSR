@@ -7,7 +7,8 @@ public class MouseScrollCamera : MonoBehaviour
 {
     private CinemachineTrackedDolly dt;
     public float speed;
-    void Start()
+
+    void Awake()
     {
         dt = gameObject.GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineTrackedDolly>();
         speed = 0.25f; //0.35
