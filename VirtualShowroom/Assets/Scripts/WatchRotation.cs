@@ -8,17 +8,14 @@ public class WatchRotation : MonoBehaviour
     private Vector3 watchRotation;
     private float speed = 2f;
     private TriggerActionsCamera tac;
-    private Button openWatchButton;
-    private Button closeWatchButton;
-    private WatchButton watchButton;
+    public Button openWatchButton;
+    public Button closeWatchButton;
+    public WatchButton watchButton;
 
     void Start()
     {
         watchRotation.y = 10;
-        tac = GameObject.Find("Main Camera").GetComponent<TriggerActionsCamera>();
-        openWatchButton = GameObject.Find("OpenWatch").GetComponent<Button>();
-        closeWatchButton = GameObject.Find("CloseWatch").GetComponent<Button>();
-        watchButton = GameObject.Find("WatchButtonSwitch").GetComponent<WatchButton>();
+        tac = Camera.main.GetComponent<TriggerActionsCamera>();
     }
 
     void Update()

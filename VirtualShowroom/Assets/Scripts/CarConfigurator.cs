@@ -9,33 +9,23 @@ public class CarConfigurator : MonoBehaviour
      *check if it s looking from the outside or inside
      */
     private TriggerActionsCamera tac;
-    private GameObject carUI;
+    public GameObject carUI;
 
-    private Button openCarConfButton;
-    private Button closeCarConfButton;
-    private CarConfButton ccb;
-    private GameObject carConfUI;
-
-    //private ApplyColor applyColor;
+    public Button openCarConfButton;
+    public Button closeCarConfButton;
+    public CarConfButton ccb;
+    public GameObject carConfUI;
 
 
     void Start()
     {
-        tac = GameObject.Find("Main Camera").GetComponent<TriggerActionsCamera>();
-        carUI = GameObject.Find("UICar");
-
-        openCarConfButton = GameObject.Find("OpenCarConf").GetComponent<Button>();
-        closeCarConfButton = GameObject.Find("CloseCarConf").GetComponent<Button>();
-        ccb = gameObject.GetComponent<CarConfButton>();
-        carConfUI = GameObject.Find("CarConf");
+        tac = Camera.main.GetComponent<TriggerActionsCamera>();
 
     }
-    //error: applyColor.carMaterial bestaat niet
     void Update()
     {
         if (tac.triggerZone == "TriggerCar")
         {
-            //Debug.Log(gameObject.GetComponent<CarConfButton>());
             carUI.SetActive(true);
 
             if (ccb.isConfOpen == false)
@@ -55,7 +45,6 @@ public class CarConfigurator : MonoBehaviour
         }
         else
         {
-            //Debug.Log(applyColor.carMaterial);
             ResetCar();
             ResetCarUI();
         }
@@ -63,8 +52,6 @@ public class CarConfigurator : MonoBehaviour
 
     private void ResetCar()
     {
-        //Debug.Log(applyColor.carMaterial);
-        //applyColor.carMaterial.color = Color.white;
 
         //kan nog de carRotation script hierin samenvoegen
     }

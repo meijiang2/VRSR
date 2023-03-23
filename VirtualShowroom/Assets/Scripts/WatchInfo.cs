@@ -7,20 +7,15 @@ public class WatchInfo : MonoBehaviour
 {
     private string selectedName = "empty";
     private TriggerActionsCamera tac;
-    private SelectionManager selectionManager;
-    private GameObject infoBG;
-    private GameObject info1;
-    private GameObject info2;
-    private GameObject info3;
+    public SelectionManager selectionManager;
+    public GameObject infoBG;
+    public GameObject info1;
+    public GameObject info2;
+    public GameObject info3;
 
     void Start()
     {
-        selectionManager = GameObject.Find("SelectionManager").GetComponent<SelectionManager>();
-        tac = GameObject.Find("Main Camera").GetComponent<TriggerActionsCamera>();
-        infoBG = GameObject.Find("WIBG");
-        info1 = GameObject.Find("WI1");
-        info2 = GameObject.Find("WI2");
-        info3 = GameObject.Find("WI3");
+        tac = Camera.main.GetComponent<TriggerActionsCamera>();
     }
 
     void Update()

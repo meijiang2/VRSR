@@ -4,17 +4,15 @@ using UnityEngine;
 
 public class WatchButton : MonoBehaviour
 {
-    private Animation anim;
+    public Animation anim;
     public bool isOpenAnimPlayed = false;
 
     void Start()
     {
-        anim = GameObject.Find("AppleWatch").GetComponent<Animation>();
     }
 
     void Update()
     {
-        
     }
 
     public void OpenWatch()

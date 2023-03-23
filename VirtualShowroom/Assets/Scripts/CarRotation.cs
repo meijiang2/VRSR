@@ -9,7 +9,7 @@ public class CarRotation : MonoBehaviour
 
     void Start()
     {
-        tac = GameObject.Find("Main Camera").GetComponent<TriggerActionsCamera>();
+        tac = Camera.main.GetComponent<TriggerActionsCamera>();
     }
 
     void Update()
