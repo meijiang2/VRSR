@@ -22,7 +22,6 @@ public class CarConfigurator : MonoBehaviour
     public Button camCarInteriorButton;
     public GameObject carConfUI;
 
-
     void Awake()
     {
         tac = Camera.main.GetComponent<TriggerActionsCamera>();
@@ -53,6 +52,8 @@ public class CarConfigurator : MonoBehaviour
                 {
                     camCarConfButton.gameObject.SetActive(true);
                     camCarInteriorButton.gameObject.SetActive(false);
+
+                    
                 }
             }
             else
