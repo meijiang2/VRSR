@@ -6,11 +6,13 @@ using UnityEngine.UI;
 public class CarConfigurator : MonoBehaviour
 {
     //kan nog de carRotation script hierin samenvoegen
+    private float speed = 2f;
 
     private TriggerActionsCamera tac;
 
     private Vector3 stdPos;
     private Quaternion stdRot;
+    private Quaternion stdIntVcamRot;
 
     //car ui values
     #region
@@ -30,6 +32,7 @@ public class CarConfigurator : MonoBehaviour
         tac = Camera.main.GetComponent<TriggerActionsCamera>();
         stdPos = car.transform.position;
         stdRot = car.transform.rotation;
+        stdIntVcamRot = carButton.camCarInterior.transform.rotation;
         //stdBodyMats = stdBodyMeshRend.sharedMaterials;
         //stdDoorMats = stdDoorMeshRend.sharedMaterials;
         //stdDoorHandleMat = stdDoorHandleMeshRend.material;
@@ -54,14 +57,16 @@ public class CarConfigurator : MonoBehaviour
                     camCarConfButton.gameObject.SetActive(false);
                     camCarInteriorButton.gameObject.SetActive(true);
 
-
+                    RotateCar();
+                    ResetIntCam();
                 }
                 else
                 {
                     camCarConfButton.gameObject.SetActive(true);
                     camCarInteriorButton.gameObject.SetActive(false);
 
-                    
+                    ResetCarTransform();
+                    RotateIntCam();
                 }
             }
             else
@@ -74,12 +79,21 @@ public class CarConfigurator : MonoBehaviour
         }
         else
         {
-            ResetCar();
+            ResetCarTransform();
+            changePreset.ChangeCarToP1();
             ResetCarUI();
         }
     }
 
-    private void ResetCar()
+    private void RotateCar()
+    {
+        if (Input.GetMouseButton(0))
+        {
+            car.transform.eulerAngles += speed * new Vector3(x: 0, y: Input.GetAxis("Mouse X"), z: 0);
+        }
+    }
+
+    private void ResetCarTransform()
     {
         car.transform.position = stdPos;
         car.transform.rotation = stdRot;
@@ -89,13 +103,24 @@ public class CarConfigurator : MonoBehaviour
         //stdDoorHandleMeshRend.material = stdDoorHandleMat;
         //stdSeatMeshRend.material = stdSeatMat;
         //stdSteeringWheelMeshRend.material = stdSteeringWheelMat;
-
-        changePreset.ChangeCarToP1();
     }
 
     private void ResetCarUI()
     {
         carButton.isConfOpen = false;
         carUI.SetActive(false);
+    }
+
+    private void RotateIntCam()
+    {
+        if (Input.GetMouseButton(0))
+        {
+            carButton.camCarInterior.transform.eulerAngles += speed * new Vector3(x: -Input.GetAxis("Mouse Y"), y: Input.GetAxis("Mouse X"), z: 0);
+        }
+    }
+
+    private void ResetIntCam()
+    {
+        carButton.camCarInterior.transform.rotation = stdIntVcamRot;
     }
 }
