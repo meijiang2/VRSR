@@ -5,14 +5,15 @@ using UnityEngine.UI;
 
 public class CarConfigurator : MonoBehaviour
 {
-    /*check if camera is within zone car
-     *check if it s looking from the outside or inside
-     */
     //kan nog de carRotation script hierin samenvoegen
 
     private TriggerActionsCamera tac;
-    private Vector3 standardPos;
-    private Quaternion standardRot;
+
+    private Vector3 stdPos;
+    private Quaternion stdRot;
+
+    //car ui values
+    #region
     public GameObject car;
     public GameObject carUI;
     public CarButton carButton;
@@ -21,12 +22,19 @@ public class CarConfigurator : MonoBehaviour
     public Button camCarConfButton;
     public Button camCarInteriorButton;
     public GameObject carConfUI;
+    public CarChangePreset changePreset;
+    #endregion
 
     void Awake()
     {
         tac = Camera.main.GetComponent<TriggerActionsCamera>();
-        standardPos = car.transform.position;
-        standardRot = car.transform.rotation;
+        stdPos = car.transform.position;
+        stdRot = car.transform.rotation;
+        //stdBodyMats = stdBodyMeshRend.sharedMaterials;
+        //stdDoorMats = stdDoorMeshRend.sharedMaterials;
+        //stdDoorHandleMat = stdDoorHandleMeshRend.material;
+        //stdSeatMat = stdSeatMeshRend.material;
+        //stdSteeringWheelMat = stdSteeringWheelMeshRend.material;
     }
     void Update()
     {
@@ -73,8 +81,16 @@ public class CarConfigurator : MonoBehaviour
 
     private void ResetCar()
     {
-        car.transform.position = standardPos;
-        car.transform.rotation = standardRot;
+        car.transform.position = stdPos;
+        car.transform.rotation = stdRot;
+
+        //stdBodyMeshRend.sharedMaterials = stdBodyMats;
+        //stdDoorMeshRend.sharedMaterials = stdDoorMats;
+        //stdDoorHandleMeshRend.material = stdDoorHandleMat;
+        //stdSeatMeshRend.material = stdSeatMat;
+        //stdSteeringWheelMeshRend.material = stdSteeringWheelMat;
+
+        changePreset.ChangeCarToP1();
     }
 
     private void ResetCarUI()

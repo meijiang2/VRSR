@@ -12,14 +12,6 @@ public class CarButton : MonoBehaviour
     public CinemachineVirtualCamera camCarConf;
     public CinemachineVirtualCamera camCarInterior;
 
-    void Start()
-    {
-    }
-
-    void Update()
-    {
-    }
-
     public void OpenCarConf()
     {
         isConfOpen = true;
