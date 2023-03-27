@@ -5,6 +5,7 @@ using Cinemachine;
 
 public class MouseScrollHiddenObject : MonoBehaviour
 {
+    public CinemachineVirtualCamera vcMain;
     private CinemachineTrackedDolly ho;
     public float speed;
 
@@ -16,15 +17,16 @@ public class MouseScrollHiddenObject : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        if (vcMain.Priority == 10)
         {
-            ho.m_PathPosition -= speed;
-            //Debug.Log("moving...back HO");
-        }
-        if (Input.GetAxis("Mouse ScrollWheel") < 0)
-        {
-            ho.m_PathPosition += speed;
-            //Debug.Log("moving...forward HO");
+            if (Input.GetAxis("Mouse ScrollWheel") > 0)
+            {
+                ho.m_PathPosition -= speed;
+            }
+            if (Input.GetAxis("Mouse ScrollWheel") < 0)
+            {
+                ho.m_PathPosition += speed;
+            }
         }
     }
 }

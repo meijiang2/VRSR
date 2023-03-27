@@ -5,27 +5,29 @@ using Cinemachine;
 
 public class MouseScrollCamera : MonoBehaviour
 {
+    public CinemachineVirtualCamera vc;
     private CinemachineTrackedDolly dt;
     public float speed;
 
     void Awake()
     {
+        vc = gameObject.GetComponent<CinemachineVirtualCamera>();
         dt = gameObject.GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineTrackedDolly>();
         speed = 0.25f; //0.35
     }
 
     void Update()
     {
-
-        if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        if (vc.Priority == 10)
         {
-            dt.m_PathPosition -= speed;
-            //Debug.Log("moving...back");
-        }
-        if (Input.GetAxis("Mouse ScrollWheel") < 0)
-        {
-            dt.m_PathPosition += speed;
-            //Debug.Log("moving...forward");
+            if (Input.GetAxis("Mouse ScrollWheel") > 0)
+            {
+                dt.m_PathPosition -= speed;
+            }
+            if (Input.GetAxis("Mouse ScrollWheel") < 0)
+            {
+                dt.m_PathPosition += speed;
+            }
         }
     }
 }
