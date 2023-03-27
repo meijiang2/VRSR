@@ -75,6 +75,7 @@ public class CarConfigurator : MonoBehaviour
                 closeCarConfButton.gameObject.SetActive(false);
 
                 carConfUI.SetActive(false);
+                RotateCar();
             }
         }
         else
